@@ -65,3 +65,50 @@ newArray = drivers.filter((element, index) => {
 });
 
 console.log(newArray);
+
+
+/** 
+ * JSnack 3
+    Creiamo un array di oggetti (scelti da voi)
+    Creiamo una copia da questo array di partenza e aggiungiamo ai singoli elementi una nuova proprietà position che contiene una lettera casuale.
+    Non dobbiamo modificare l'array iniziale.
+*/
+
+const fruits = [
+    {
+        name: 'Banana',
+        color: 'yellow'
+    },
+    {
+        name: 'Orange',
+        color: 'orange'
+    },
+    {
+        name: 'Strawberry',
+        color: 'red'
+    },
+    {
+        name: 'Grapes',
+        color: 'violet'
+    }
+];
+
+const newArray2 = fruits.map(person => {
+    let copyObject = {
+        ...person,
+        position: randomLetter()
+    }
+    return copyObject
+});
+
+console.table(newArray2);
+
+function randomLetter() {
+    var letters = 'abcdefghijklmnopqrstuvxyz';
+
+    return letters[randomNumber(0, letters.length - 1)];
+};
+
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
